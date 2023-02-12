@@ -11,6 +11,10 @@ var nome: string;
     val1: integer;
     val2: integer;
     calculo: integer;
+    subtracao: integer;
+    multiplicacao: integer;
+    dividir: integer;
+    modulo: integer;
 
     mostraIdade: integer;
 
@@ -65,33 +69,51 @@ begin
   c := 0;
 
   // Escrever na tela
+  writeln('#### Escrever na tela ####');
   writeln('Olá Mundo');
   writeln();
 
-  // variáveis
-  writeln(nome, idade , sexo , peso , ativo);
-  writeln();
-  
-  writeln(PI); // constante
+  // VARIÁVEIS
+  writeln('### VARIÁVEIS ###');
+  writeln('Nome: ', nome);
+  writeln('Idade: ', idade);
+  writeln('Sexo: ', sexo);
+  writeln('Peso: ', peso);
+  writeln('Ativo: ', ativo);
   writeln();
 
+  // CONSTANTE
+  writeln('### CONSTANTE ###');
+  writeln('PI: ', PI);
+  writeln();
 
-  writeln('####Capturando Variáveis####');
+// OPERACOES
+  writeln('#### OPERACOES ####');
   writeln('Informe o valor 1');
   readln(val1);
   
   writeln('Informe o valor 2');
   readln(val2);
   
-  calculo := val1+val2; // Pode usar: (+, -, *, /, mod)
-  writeln(calculo);
+  calculo := val1 + val2; // Pode usar: (+, -, *, /, mod)
+  subtracao := val1 - val2;
+  multiplicacao := val1 * val2;
+  dividir := val1 div val2;
+  modulo := val1 mod val2;
+  writeln('Soma: ', calculo);
+  writeln('Subtracao: ', subtracao);
+  writeln('Multiplicacao: ', multiplicacao);
+  writeln('Divisao: ', dividir);
+  writeln('Modulo: ', modulo);
   writeln();
 
+  // TERNARIO
+  writeln('### TERNARIO ###');
   writeln('Não tem ternário');
   writeln();
 
   // IF ELSE IF ELSE
-  writeln('####IF ELSE IF ELSE####');
+  writeln('#### IF ELSE IF ELSE ####');
   writeln('Informe a idade');
   readln(mostraIdade);
   if (mostraIdade<12) then
@@ -103,7 +125,7 @@ begin
   writeln();
 
   // CASE
-  writeln('####CASE####');
+  writeln('#### CASE ####');
   writeln('Informe um numero 1 - 7 para semana');
   readln(dia);
   case dia of
@@ -120,18 +142,20 @@ begin
   writeln();
 
   // REPEAT
-  writeln('####REPEAT####');
+  writeln('#### REPEAT ####');
   repeat
     writeln(a);
     a := a + 1
   until a = 10;
   writeln();
 
+ // DO WHILE
+  writeln('#### DO WHILE ####');
   writeln('Não tem DO WHILE');
   writeln();
 
   // WHILE
-  writeln('####WHILE####');
+  writeln('#### WHILE ####');
   while(b < 10) do
   begin
    writeln(b);
@@ -140,7 +164,7 @@ begin
   writeln();
 
   // FOR
-  writeln('####FOR####');
+  writeln('#### FOR ####');
   for c:= 0 to 10 do
   begin
       writeln(c);
@@ -149,7 +173,7 @@ begin
 
 
   // FUNCAO
-  writeln('####FUNCAO####');
+  writeln('#### FUNCAO ####');
   writeln('Digite o valor 1');
   readln(m);
   
@@ -161,7 +185,7 @@ begin
 
 
   // PROCEDURE
-  writeln('####PROCEDURE####');
+  writeln('#### PROCEDURE ####');
   writeln('Digite o valor 1');
   readln(o);
 
