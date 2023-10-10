@@ -1,6 +1,10 @@
 program HelloWorld;
 uses crt;
 
+type
+  // Declaração do enum
+  Cor = (Vermelho, Verde, Azul, Amarelo, Laranja);
+
 // Declaração de variáveis 
 var nome: string;
     idade: integer;
@@ -10,7 +14,7 @@ var nome: string;
     
     val1: integer;
     val2: integer;
-    calculo: integer;
+    adicao: integer;
     subtracao: integer;
     multiplicacao: integer;
     dividir: integer;
@@ -31,6 +35,16 @@ var nome: string;
 
     o: integer;
     p: integer;
+
+    numbers: array[0..3] of Integer;
+    matriz: array[0..2, 0..2] of Integer;
+    i, j: Integer;
+
+    ponteiro: ^integer;
+
+    numero1, numero2, resultado: integer;
+
+    MinhaCor: Cor;
 
 
 // Constante 
@@ -68,13 +82,13 @@ begin
 
   c := 0;
 
-  // Escrever na tela
-  writeln('#### Escrever na tela ####');
+  // ESCREVER NA TELA
+  writeln('#### ESCREVER NA TELA ####');
   writeln('Olá Mundo');
   writeln();
 
-  // VARIÁVEIS
-  writeln('### VARIÁVEIS ###');
+  // VARIÁVEIS E TIPOS BÁSICOS
+  writeln('### VARIÁVEIS E TIPOS BÁSICOS ###');
   writeln('Nome: ', nome);
   writeln('Idade: ', idade);
   writeln('Sexo: ', sexo);
@@ -89,18 +103,18 @@ begin
 
 // OPERACOES
   writeln('#### OPERACOES ####');
-  writeln('Informe o valor 1');
+  write('Informe o valor 1: ');
   readln(val1);
   
-  writeln('Informe o valor 2');
+  write('Informe o valor 2: ');
   readln(val2);
   
-  calculo := val1 + val2; // Pode usar: (+, -, *, /, mod)
+  adicao := val1 + val2; // Pode usar: (+, -, *, /, mod)
   subtracao := val1 - val2;
   multiplicacao := val1 * val2;
   dividir := val1 div val2;
   modulo := val1 mod val2;
-  writeln('Soma: ', calculo);
+  writeln('Soma: ', adicao);
   writeln('Subtracao: ', subtracao);
   writeln('Multiplicacao: ', multiplicacao);
   writeln('Divisao: ', dividir);
@@ -114,7 +128,7 @@ begin
 
   // IF ELSE IF ELSE
   writeln('#### IF ELSE IF ELSE ####');
-  writeln('Informe a idade');
+  write('Informe a idade: ');
   readln(mostraIdade);
   if (mostraIdade<12) then
     writeln('CRIANCA')
@@ -126,7 +140,7 @@ begin
 
   // CASE
   writeln('#### CASE ####');
-  writeln('Informe um numero 1 - 7 para semana');
+  write('Informe um numero 1 - 7 para semana: ');
   readln(dia);
   case dia of
       1:writeln('Domingo');
@@ -171,13 +185,53 @@ begin
   end;
   writeln();
 
+  // ARRAY
+  writeln('### ARRAY ###');
+  numbers[0] := 10;
+  numbers[1] := 20;
+  numbers[2] := 30;
+  numbers[3] := 40;
+
+  for i := 0 to 3 do
+  begin
+    writeln(numbers[i]);
+  end;
+
+  writeln;
+
+
+  // MATRIZ
+  writeln('### MATRIZ ###');
+  // Declaração de uma matriz 3x3 de inteiros
+
+  // Inicialização da matriz
+  for i := 0 to 2 do
+  begin
+    for j := 0 to 2 do
+    begin
+      matriz[i, j] := i * 3 + j + 1;
+    end;
+  end;
+
+  // Acesso aos elementos da matriz
+  writeln('Elementos da matriz:');
+  for i := 0 to 2 do
+  begin
+    for j := 0 to 2 do
+    begin
+      write(matriz[i, j], ' ');
+    end;
+    writeln;
+  end;
+  writeln();
+
 
   // FUNCAO
   writeln('#### FUNCAO ####');
-  writeln('Digite o valor 1');
+  write('Digite o valor 1: ');
   readln(m);
   
-  writeln('Digite o valor 2');
+  write('Digite o valor 2: ');
   readln(n);
   
   writeln('Soma ',soma(m,n));
@@ -186,12 +240,55 @@ begin
 
   // PROCEDURE
   writeln('#### PROCEDURE ####');
-  writeln('Digite o valor 1');
+  write('Digite o valor 1: ');
   readln(o);
 
-  writeln('Digite o valor 2');
+  write('Digite o valor 2: ');
   readln(p);
 
   somar(o,p);
-  readkey;
+  writeln();
+
+  // PONTEIRO
+  writeln('#### PONTEIRO ####');
+  new(ponteiro);  // Aloca memória dinamicamente para um inteiro
+  ponteiro^ := 42;  // Atribui um valor à variável apontada
+  writeln('Valor da variável apontada: ', ponteiro^);
+  dispose(ponteiro);  // Libera a memória alocada
+  writeln();
+
+  // TRY CATCH
+ writeln('### TRY CATCH ###');
+  (**
+  writeln('Digite dois números inteiros para a divisão:');
+  readln(numero1);
+  readln(numero2);
+
+  try
+    resultado := numero1 / numero2;
+    writeln('Resultado da divisão: ', resultado);
+  except
+    on E: Exception do
+    begin
+      writeln('Ocorreu uma exceção: ', E.Message);
+    end;
+  end;
+  **)
+  writeln();
+
+// ENUM
+ writeln('### ENUM ###');
+ MinhaCor := Azul;
+ 
+ case MinhaCor of
+    Vermelho: writeln('Minha cor favorita é vermelho.');
+    Verde: writeln('Minha cor favorita é verde.');
+    Azul: writeln('Minha cor favorita é azul.');
+    Amarelo: writeln('Minha cor favorita é amarelo.');
+    Laranja: writeln('Minha cor favorita é laranja.');
+  else
+    writeln('Eu não tenho uma cor favorita.');
+  end;
+
+   readkey;
 end.
