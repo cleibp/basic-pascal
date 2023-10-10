@@ -25,7 +25,7 @@ Exemplificação da sintaxe geral e básica da Linguagem Pascal
 ```sh
 .
 ├── main.p
-├── README.md
+└── README.md
 ```
 
 ## 👋🏽 DEMO
