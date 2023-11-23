@@ -259,11 +259,17 @@ begin
 
   // TRY CATCH
  writeln('### TRY CATCH ###');
-  (**
-  writeln('Digite dois números inteiros para a divisão:');
-  readln(numero1);
-  readln(numero2);
-
+ 
+ numero1 := 0;
+ numero2 := 0;
+ resultado := 0;
+ 
+ write('Informe o valor 1 para o dividendo: ');
+ readln(numero1);
+ 
+ write('Informe o valor 2 para o divisor: ');
+ readln(numero1);
+(**
   try
     resultado := numero1 / numero2;
     writeln('Resultado da divisão: ', resultado);
