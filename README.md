@@ -29,7 +29,7 @@ Exemplificação da sintaxe geral e básica da Linguagem Pascal
 ```
 
 ## 👋🏽 DEMO
-[REPLIT](https://replit.com/@cleibp/Basic-Pascal#main.p) 
+|=>
 
 ## Contatos
 
